@@ -37,14 +37,14 @@
 	</style>
 	<script src="muni14.js"></script>
 	<script>
-		window.onload =function(){                  
+		window.onload =function(){        
 
-			muni14.addDepts('departamentos');   
-			muni14.addDepts('departamentos-2'); 
-			muni14.addDepts('departamentos-3'); 
-			muni14.addDepts('departamentos-4'); 
+			muni14.addDepts('departamentos');
+			muni14.addDepts('departamentos-2');
+			muni14.addDepts('departamentos-3');
+			muni14.addDepts('departamentos-4');
 
-			// Opcional 
+			// Opcional
 
 			var formCode = document.getElementById('formCode');
 			formCode.onsubmit = function(){
@@ -54,10 +54,10 @@
 					alert(result);
 				}else{
 					alert('No encontrado. Codigo debe ser de 4 digitos');
-				}	
+				}
 				return false;
 			};
-		};		
+		};
 	</script>
 </head>
 <body>
@@ -72,7 +72,7 @@
 &lt;script&gt;
 window.onload =function(){
 	muni14.addDepts(&#x27;departamentos&#x27;);
-};		
+};
 &lt;/script&gt;</code></pre>
 	
 	<p>El script creara un elemento <code>select</code> adicional que se actualizara dinamicamente con la lista de municipios dependiendo del departamento selecionado. Si el <code>id</code> del select box con los departamentos es <code>departamentos</code> el <code>id</code> del select box con los municipios sera  <code>departamentos-munis</code>.</p>
@@ -97,7 +97,7 @@ window.onload =function(){
 			<select id="departamentos-4">
 				<option value="00">Departamento</option>
 			</select>
-	</form>	
+	</form>
 	<h2>Leer codigos</h2>
 			<p>Los departamentos y municipios siguen el sistema de codificacion oficial, por ejemplo San Salvador, Soyapango es <code>"0618"</code></p>
 	<p>Para leer codigos solo usa la funcion <code>getDeptMuni</code> con el codigo en una cadena de texto</p>

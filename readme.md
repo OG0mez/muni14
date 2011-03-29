@@ -14,7 +14,7 @@ Luego, agrega una referencia al script y utiliza la funcion addDepts pasando com
     <script>
         window.onload =function(){
                 muni14.addDepts('departamentos');
-        };		
+        };
     </script>
 
 El script creara un elemento `select` adicional que se actualizara dinamicamente con la lista de municipios dependiendo del departamento selecionado. Si el `id` del select box con los departamentos es `departamentos` el `id` del select box con los municipios sera `departamentos-munis`.

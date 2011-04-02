@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Muni14 - Generador de Departamentos y Municipios</title>
+	<style type="text/css">
+			select{display:block;margin-bottom:10px;}
+			body{
+				background: #E5E5F5;
+		    font-family: helvetica,arial,serif;
+			  color: #363636;
+		    margin: auto;
+		    width: 700px;
+			}
+			label{
+				font-size:0.75em;
+			}
+			p code{
+				background: #D0D0E6;
+		    color: #222222;
+		    padding: 0 3px;
+			}
+			pre{
+				background:#3A3A3A;
+				color:#EEEAEA;
+        padding: 15px;
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+				border-radius: 5px;
+			}
+			#footer{
+				margin-top:20px;
+				margin-bottom:5px;
+				text-align:center;
+				font-size:0.7em;
+			}
+	</style>
+	<script src="muni14.min.js"></script>
+	<script>
+		window.onload =function(){        
+
+			muni14.addDepts('departamentos');
+			muni14.addDepts('departamentos-2');
+			muni14.addDepts('departamentos-3');
+			muni14.addDepts('departamentos-4');
+
+			// Opcional
+
+			var formCode = document.getElementById('formCode');
+			formCode.onsubmit = function(){
+				var code = document.getElementById('codigo').value;
+				var result = muni14.getDeptMuni(code);
+				if(result){
+					alert(result);
+				}else{
+					alert('No encontrado. Codigo debe ser de 4 digitos');
+				}
+				return false;
+			};
+		};
+	</script>
+</head>
+<body>
+	<h1>Muni14</h1>
+	<p>Generador de departamentos y municipios para El Salvador (JavaScript)</p>
+	
+	<h2>Uso:</h2>
+	<p>Solamente agrega una o mas <code>select</code> boxes a tu pagina y asignales un atributo  <code>id</code>.</p>
+	<pre><code>&lt;select id="departamentos"&gt;&lt;/select&gt;</code></pre>
+	<p>Luego, agrega una referencia al script y utiliza la funcion <code>addDepts</code> pasando como argumento el <code>id</code> del elemento <code>select</code> para generar la lista de departamentos. Por ejemplo:</p>
+	<pre><code>&lt;script src="muni14.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+window.onload =function(){
+	muni14.addDepts(&#x27;departamentos&#x27;);
+};
+&lt;/script&gt;</code></pre>
+	
+	<p>El script creara un elemento <code>select</code> adicional que se actualizara dinamicamente con la lista de municipios dependiendo del departamento selecionado. Si el <code>id</code> del select box con los departamentos es <code>departamentos</code> el <code>id</code> del select box con los municipios sera  <code>departamentos-munis</code>.</p>
+	
+	<h2>Ejemplo</h2>
+	
+	<h3>Departamentos y Municipios</h3>
+	<form>
+			<label for='departamentos'>Departamentos</label>
+			<select id="departamentos">
+				<option value="00">Departamento</option>
+			</select>
+			<label for='departamentos-2'>Departamentos-2</label>
+			<select id="departamentos-2">
+				<option value="00">Departamento</option>
+			</select>
+			<label for='departamentos-3'>Departamentos-3</label>
+			<select id="departamentos-3">
+				<option value="00">Departamento</option>
+			</select>
+			<label for='departamentos-4'>Departamentos-4</label>
+			<select id="departamentos-4">
+				<option value="00">Departamento</option>
+			</select>
+	</form>
+	<h2>Leer codigos</h2>
+			<p>Los departamentos y municipios siguen el sistema de codificacion oficial, por ejemplo San Salvador, Soyapango es <code>"0618"</code></p>
+	<p>Para leer codigos solo usa la funcion <code>getDeptMuni</code> con el codigo en una cadena de texto</p>
+	<pre><code>muni14.getDeptMuni("0618");	// San Salvador, Soyapango</code></pre>
+		<form id="formCode">
+		<label for="codigo">Codigo:</label>
+		<input type="text" value="" id="codigo">
+		<input type="submit" value="submit">
+	</form>
+	<h3>Otras Funciones</h3>
+	<p>Para obtener el departamento solo usa la funcion <code>getDept</code> y pasa como argumento el codigo del departamento como cadena de texto o como numero.</p>
+	<pre><code>muni14.getDept('03');	// Sonsonate
+muni14.getDept(3);	// Sonsonate</code></pre>
+<div id='footer'>Jaime</div>
+</body>
+</html>

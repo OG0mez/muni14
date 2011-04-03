@@ -9,7 +9,7 @@ Solamente agrega una o mas `select` boxes a tu pagina y asignales un atributo `i
 
 Luego, agrega una referencia al script y utiliza la funcion addDepts pasando como argumento el id del elemento select para generar la lista de departamentos. Por ejemplo:
 
-    <script src="muni14.js"></script>
+    <script src="muni14.min.js"></script>
 
     <script>
         window.onload =function(){

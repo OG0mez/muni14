@@ -113,7 +113,7 @@ Puedes probar lo siguiente en tu base de datos (en este caso usamos sqlite)
     13|Morazán
     14|La Unión
     
-    sqlite&gt; select id,municipio from municipios;
+    sqlite> select id,municipio from municipios;
     101|Ahuachapán
     102|Jujutla
     103|Atiquizaya

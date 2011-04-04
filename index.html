@@ -3,38 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Muni14 - Generador de Departamentos y Municipios</title>
-	<style type="text/css">
-			select{display:block;margin-bottom:10px;}
-			body{
-				background: #E5E5F5;
-		    font-family: helvetica,arial,serif;
-			  color: #363636;
-		    margin: auto;
-		    width: 700px;
-			}
-			label{
-				font-size:0.75em;
-			}
-			p code{
-				background: #D0D0E6;
-		    color: #222222;
-		    padding: 0 3px;
-			}
-			pre{
-				background:#3A3A3A;
-				color:#EEEAEA;
-        padding: 15px;
-				-moz-border-radius: 5px;
-				-webkit-border-radius: 5px;
-				border-radius: 5px;
-			}
-			#footer{
-				margin-top:20px;
-				margin-bottom:5px;
-				text-align:center;
-				font-size:0.7em;
-			}
-	</style>
+	<link rel="stylesheet" href="style.css" type="text/css" >
 	<script src="muni14.min.js"></script>
 	<script>
 		window.onload =function(){        
@@ -64,11 +33,13 @@
 	<h1>Muni14</h1>
 	<p>Generador de departamentos y municipios para El Salvador (JavaScript)</p>
 	
+	<a href="build-yml.html">yaml builder aqui</a>
+	
 	<h2>Uso:</h2>
 	<p>Solamente agrega una o mas <code>select</code> boxes a tu pagina y asignales un atributo  <code>id</code>.</p>
 	<pre><code>&lt;select id="departamentos"&gt;&lt;/select&gt;</code></pre>
 	<p>Luego, agrega una referencia al script y utiliza la funcion <code>addDepts</code> pasando como argumento el <code>id</code> del elemento <code>select</code> para generar la lista de departamentos. Por ejemplo:</p>
-	<pre><code>&lt;script src="muni14.min.js"&gt;&lt;/script&gt;
+	<pre><code>&lt;script src="muni14.js"&gt;&lt;/script&gt;
 &lt;script&gt;
 window.onload =function(){
 	muni14.addDepts(&#x27;departamentos&#x27;);
@@ -111,6 +82,8 @@ window.onload =function(){
 	<p>Para obtener el departamento solo usa la funcion <code>getDept</code> y pasa como argumento el codigo del departamento como cadena de texto o como numero.</p>
 	<pre><code>muni14.getDept('03');	// Sonsonate
 muni14.getDept(3);	// Sonsonate</code></pre>
-<div id='footer'>Jaime</div>
+
+	
+	<div id='footer'>Jaime</div>
 </body>
 </html>

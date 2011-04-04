@@ -1,0 +1,31 @@
+	select{display:block;margin-bottom:10px;}
+	body{
+		background: #E5E5F5;
+    font-family: helvetica,arial,serif;
+	  color: #363636;
+    margin: auto;
+    width: 700px;
+	}
+	label{
+		font-size:0.75em;
+		display:block;
+	}
+	p code{
+		background: #D0D0E6;
+    color: #222222;
+    padding: 0 3px;
+	}
+	pre{
+		background:#3A3A3A;
+		color:#EEEAEA;
+padding: 15px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+	}
+	#footer{
+		margin-top:20px;
+		margin-bottom:5px;
+		text-align:center;
+		font-size:0.7em;
+	}

@@ -113,7 +113,7 @@ Puedes probar lo siguiente en tu base de datos (en este caso usamos sqlite)
     13|Morazán
     14|La Unión
     
-    sqlite> select id,municipio from municipios;
+    sqlite&gt; select id,municipio from municipios;
     101|Ahuachapán
     102|Jujutla
     103|Atiquizaya
@@ -122,6 +122,7 @@ Puedes probar lo siguiente en tu base de datos (en este caso usamos sqlite)
     106|Guaymango
     107|Apaneca
     108|San Francisco Menéndez
+    109|San Lorenzo
     110|San Pedro Puxtla
     111|Tacuba
     112|Turín
@@ -130,14 +131,7 @@ Puedes probar lo siguiente en tu base de datos (en este caso usamos sqlite)
     203|Coatepeque
     204|El Congo
     205|El Porvenir
-    206|Masahuat
-    207|Metapán
-    208|San Antonio Pajonal
-    209|San Sebastián Salitrillo
-    210|Santa Ana
-    211|Santa Rosa Guachipilín
-    212|Santiago de la Frontera
-      ........
+    ....
 
 Tambien desde la consola de rails
 

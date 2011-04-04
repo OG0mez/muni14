@@ -3,38 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Muni14 - Generador de Departamentos y Municipios</title>
-	<style type="text/css">
-			select{display:block;margin-bottom:10px;}
-			body{
-				background: #E5E5F5;
-		    font-family: helvetica,arial,serif;
-			  color: #363636;
-		    margin: auto;
-		    width: 700px;
-			}
-			label{
-				font-size:0.75em;
-			}
-			p code{
-				background: #D0D0E6;
-		    color: #222222;
-		    padding: 0 3px;
-			}
-			pre{
-				background:#3A3A3A;
-				color:#EEEAEA;
-        padding: 15px;
-				-moz-border-radius: 5px;
-				-webkit-border-radius: 5px;
-				border-radius: 5px;
-			}
-			#footer{
-				margin-top:20px;
-				margin-bottom:5px;
-				text-align:center;
-				font-size:0.7em;
-			}
-	</style>
+	<link rel="stylesheet" href="style.css" type="text/css" >
 	<script src="muni14.min.js"></script>
 	<script>
 		window.onload =function(){        
@@ -111,6 +80,8 @@ window.onload =function(){
 	<p>Para obtener el departamento solo usa la funcion <code>getDept</code> y pasa como argumento el codigo del departamento como cadena de texto o como numero.</p>
 	<pre><code>muni14.getDept('03');	// Sonsonate
 muni14.getDept(3);	// Sonsonate</code></pre>
-<div id='footer'>Jaime</div>
+
+	
+	<div id='footer'>Jaime</div>
 </body>
 </html>

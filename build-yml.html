@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Muni14 - Generador de Departamentos y Municipios</title>
+	<link rel="stylesheet" href="style.css" type="text/css" >
+	<script src="muni14.min.js"></script>
+	<script type="text/javascript" src="build-yml.js"></script>
+</head>
+<body>
+	<h1>Muni14</h1>
+	<p>Generador de departamentos y municipios para El Salvador (JavaScript)</p>
+	
+	<h2>Archivos YAML para backend</h2>
+	<label for="departamentos-yml">codigo para departamentos.yml</label> 
+	<textarea id="departamentos-yml" cols="60" rows="20"></textarea>
+	<label for="muncipios-yml">codigo para muncipios.yml</label>
+	<textarea id="municipios-yml" cols="60" rows="20"></textarea>
+	
+	<!-- generado con markdown-live-editor -->
+	<h2>Build YAML</h2>
+
+	<p>Abre build-yml.html para generar los archivos departamentos.yml y municipios.yml los cuales pueden ser usados para cargar la base de datos en frameworks como Ruby on Rails.</p>
+
+	<h3>Como usar los archivos yml en rails</h3>
+
+	<p>Primero genera los siguientes modelos</p>
+
+	<pre><code>rails generate model Departamento 
+rails generate model Municipio
+</code></pre>
+
+	<p>Luego crea las asociaciones</p>
+
+<pre><code>class Departamento &lt; ActiveRecord::Base
+    has_many :municipios
+end
+
+class Municipio &lt; ActiveRecord::Base
+    belongs_to :departamento
+end
+</code></pre>
+
+<p>Modifica las migraciones a manera que asemejen lo siguiente</p>
+
+<pre><code>class CreateMunicipios &lt; ActiveRecord::Migration
+    def self.up
+        create_table :municipios do |t|
+            t.string :municipio
+            t.references :departamento
+            t.timestamps
+        end
+    end
+
+    def self.down
+        drop_table :municipios
+    end
+end
+
+class CreateDepartamentos &lt; ActiveRecord::Migration
+    def self.up
+      create_table :departamentos do |t|
+          t.string :departamento
+          t.timestamps
+      end
+     end
+
+     def self.down
+          drop_table :departamentos
+     end
+end
+</code></pre>
+
+<p>Modifica las fixtures (tests/fixtures/*.yml) generadas copiando la información de esta pagina </p>
+
+<p>luego migra la base de datos y carga la informacion en la base de datos desde las fixtures</p>
+
+<pre><code>rake db:migrate
+rake db:fixtures:load 
+</code></pre>
+
+<p>Puedes probar lo siguiente en tu base de datos (en este caso usamos sqlite)</p>
+
+<pre><code>sqlite&gt; select id,departamento from departamentos;
+1|Ahuachapán
+2|Santa Ana
+3|Sonsonate
+4|Chalatenango
+5|La Libertad
+6|San Salvador
+7|Cuscatlán
+8|La Paz
+9|Cabañas
+10|San Vicente
+11|Usulután
+12|San Miguel
+13|Morazán
+14|La Unión
+
+sqlite&gt; select id,municipio from municipios;
+101|Ahuachapán
+102|Jujutla
+103|Atiquizaya
+104|Concepción de Ataco
+105|El Refugio
+106|Guaymango
+107|Apaneca
+108|San Francisco Menéndez
+110|San Pedro Puxtla
+111|Tacuba
+112|Turín
+201|Candelaria de la Frontera
+202|Chalchuapa
+203|Coatepeque
+204|El Congo
+205|El Porvenir
+206|Masahuat
+207|Metapán
+208|San Antonio Pajonal
+209|San Sebastián Salitrillo
+210|Santa Ana
+211|Santa Rosa Guachipilín
+212|Santiago de la Frontera
+  ........
+</code></pre>
+
+<p>Tambien desde la consola de rails</p>
+
+<pre><code>rails console
+
+&gt; Departamento.find(6)
+=&gt; #&lt;Departamento id: 6, departamento: "San Salvador"...&gt; 
+&gt; Departamento.find(6).municipios
+=&gt; [#&lt;Municipio id: 601, municipio: "Aguilares", departamento_id: 6,..&gt;, 
+    #&lt;Municipio id: 602, municipio: "Apopa", departamento_id: 6,....&gt;, 
+    #&lt;Municipio id: 603, municipio: "Ayutuxtepeque", departamento_id: 6...&gt;...]
+
+
+&gt; Municipio.find(618)
+=&gt; #&lt;Municipio id: 618, municipio: "Soyapango", departamento_id: 6,..&gt; 
+&gt; Municipio.find(618).departamento
+=&gt; #&lt;Departamento id: 6, departamento: "San Salvador",...&gt; 
+</code></pre>
+	
+	<div id='footer'>Jaime</div>
+</body>
+</html>

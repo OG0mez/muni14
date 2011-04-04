@@ -8,7 +8,7 @@ var buildYAML=function(d){
 			
 			for(var j=0,t2=d[i].munis.length;j<t2;j++){
 				var muni_id = j+1; 
-				out_muni+=d[i].munis[j]+': ' +
+				out_muni+=d[i].dept +', ' + d[i].munis[j]+': ' +
 						'\n departamento_id: ' + (i+1) +
 						'\n id: ' + (i+1) +  (muni_id < 10 ? '0'+muni_id:muni_id) +
 						'\n municipio: ' + d[i].munis[j] + '\n\n';
